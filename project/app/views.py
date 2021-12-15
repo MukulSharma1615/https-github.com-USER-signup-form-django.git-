@@ -18,7 +18,7 @@ def home(request):
     return render(request, 'app/home.html')
 
 def signup(request):
-    print("welcome to signup view")
+    print("welcome to signup view, Now you can see the magic ")
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
