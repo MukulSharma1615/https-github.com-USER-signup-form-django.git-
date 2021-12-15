@@ -34,19 +34,6 @@ def signup(request):
                 'token': account_activation_token.make_token(user),
             })
             user.email_user(subject, message)
-            html_message = loader.render_to_string('app/account_activation_sent.html',
-               {
-                    'name': 'mukul',
-                    'body':  'You have received this activation link click here to conform your email!',
-                })    
-            send_mail(
-                '',
-                'Activation link',
-                'webmaster@localhost',
-                ['cu.16bcs1615@gmail.com'],
-                html_message=html_message,
-                fail_silently=False,
-            )
             return redirect('account_activation_sent')
     else:
         form = SignUpForm()
